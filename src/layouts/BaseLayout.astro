@@ -15,6 +15,18 @@ interface Props {
 
 const { title, description = DEFAULT_DESCRIPTION, activeNav } = Astro.props;
 const fullTitle = `${title} - ${SITE_NAME} - ${SITE_NAME}`;
+
+/** Canonical URL: production origin + path (matches `trailingSlash: 'always'`; `.html` paths unchanged). */
+function canonicalPath(pathname: string): string {
+  const path = pathname.split('?')[0].split('#')[0] || '/';
+  if (path === '/404' || path === '/404/') return '/404.html';
+  if (path.endsWith('.html')) return path;
+  if (path !== '/' && !path.endsWith('/')) return `${path}/`;
+  return path;
+}
+
+const site = Astro.site;
+const canonicalHref = site ? new URL(canonicalPath(Astro.url.pathname), site).href : undefined;
 ---
 
 <!doctype html>
@@ -27,6 +39,7 @@ const fullTitle = `${title} - ${SITE_NAME} - ${SITE_NAME}`;
     <link rel="dns-prefetch" href="//www.google-analytics.com" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    {canonicalHref && <link rel="canonical" href={canonicalHref} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
