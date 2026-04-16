@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
 import PracticeSideNav from '../../components/PracticeSideNav.astro';
+import { excerptFromMarkdownBody } from '../../lib/excerpt';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -14,9 +15,17 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+const metaDescription =
+  entry.data.description ?? excerptFromMarkdownBody(entry.body);
 ---
 
-<BaseLayout title={entry.data.title} activeNav="practice">
+<BaseLayout
+  title={entry.data.title}
+  description={metaDescription}
+  activeNav="practice"
+  ogType="article"
+>
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
       <section class="u-bgColor-gray200 u-py8">

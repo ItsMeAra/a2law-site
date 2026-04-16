@@ -3,16 +3,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
 import TeamModals from '../../components/TeamModals.astro';
 import { partners, ofCounsel, staff, teamModals } from '../../data/team';
+import { META_DESCRIPTIONS } from '../../consts';
 ---
 
-<BaseLayout title="Legal Team" activeNav="team">
+<BaseLayout title="Legal Team" description={META_DESCRIPTIONS.legalTeam} activeNav="team">
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
       <section id="lawyers" class="ourTeam u-py8 u-bgColor-gray200">
         <div class="o-grid o-grid--alignCenter">
           <header class="o-grid-cell u-mb5">
             <h1 class="u-txtCenter">Legal Team</h1>
+            <p class="u-txtCenter u-txtSmall u-mb0">
+              Willoughby & Associates is led by experienced trial attorneys based in the Los Angeles area (Culver City).
+              Meet our partners, of counsel, and staff below.
+            </p>
           </header>
+          <div class="o-grid-cell u-sizeFull u-mb4">
+            <h2 class="u-txtCenter u-h3">Partners</h2>
+          </div>
           {
             partners.map((p) => (
               <div class="o-grid-cell u-lg-size1of2">

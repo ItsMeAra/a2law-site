@@ -1,5 +1,6 @@
 ---
 title: Employment Law
+description: Employment law representation in Los Angeles — discrimination, harassment, wrongful termination, and employer defense with Willoughby & Associates.
 listHeading: 'Our employment law practice includes:'
 listItems:
   - Discrimination

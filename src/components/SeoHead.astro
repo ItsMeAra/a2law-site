@@ -1,0 +1,41 @@
+---
+import { SITE_NAME } from '../consts';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalHref?: string;
+  /** Absolute `https://` URL for Open Graph / Twitter image. */
+  socialImageUrl: string;
+  ogType?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalHref,
+  socialImageUrl,
+  ogType = 'website',
+  noindex = false,
+} = Astro.props;
+
+const useLargeImage =
+  socialImageUrl.includes('.jpg') ||
+  socialImageUrl.includes('.jpeg') ||
+  socialImageUrl.includes('.png') ||
+  socialImageUrl.includes('.webp');
+---
+
+{noindex ? <meta name="robots" content="noindex, follow" /> : <meta name="robots" content="index, follow" />}
+{canonicalHref && <link rel="canonical" href={canonicalHref} />}
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={ogType} />
+{canonicalHref && <meta property="og:url" content={canonicalHref} />}
+<meta property="og:image" content={socialImageUrl} />
+<meta name="twitter:card" content={useLargeImage ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImageUrl} />

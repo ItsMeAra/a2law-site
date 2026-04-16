@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTASection from '../components/CTASection.astro';
+import { META_DESCRIPTIONS } from '../consts';
 ---
 
-<BaseLayout title="Home">
+<BaseLayout title="Home" description={META_DESCRIPTIONS.home}>
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
       <div class="home">
@@ -25,9 +26,9 @@ import CTASection from '../components/CTASection.astro';
             </header>
             <div class="o-grid-cell u-sizeFull u-md-size1of2 u-lg-size3of12">
               <div class="o-box o-box--flush u-pr4 u-pt4 u-mb6 u-borderTop u-borderColor-gray400 u-border2">
-                <h4 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
+                <h3 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
                   <a href="/practice-areas/personal-injury/">Personal Injury</a>
-                </h4>
+                </h3>
                 <p class="u-txtSmall">
                   For decades we have fought to protect our clients’ rights to be free from harm in a wide range of
                   areas from car accidents to dog bites.
@@ -36,9 +37,9 @@ import CTASection from '../components/CTASection.astro';
             </div>
             <div class="o-grid-cell u-sizeFull u-md-size1of2 u-lg-size3of12">
               <div class="o-box o-box--flush u-pr4 u-pt4 u-mb6 u-borderTop u-borderColor-gray400 u-border2">
-                <h4 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
+                <h3 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
                   <a href="/practice-areas/appellate-advocacy/">Appellate Advocacy</a>
-                </h4>
+                </h3>
                 <p class="u-txtSmall">
                   We take pride in our ability to mold and shape the law to effectuate change for the good of the
                   individual client and for the good of the community as a whole.
@@ -47,9 +48,9 @@ import CTASection from '../components/CTASection.astro';
             </div>
             <div class="o-grid-cell u-sizeFull u-md-size1of2 u-lg-size3of12">
               <div class="o-box o-box--flush u-pr4 u-pt4 u-mb6 u-borderTop u-borderColor-gray400 u-border2">
-                <h4 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
+                <h3 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
                   <a href="/practice-areas/municipal-law/">Municipal Law</a>
-                </h4>
+                </h3>
                 <p class="u-txtSmall">
                   We have decades of experience representing both individual plaintiffs, as well as government entities,
                   who need defense or other litigation work.
@@ -58,9 +59,9 @@ import CTASection from '../components/CTASection.astro';
             </div>
             <div class="o-grid-cell u-sizeFull u-md-size1of2 u-lg-size3of12">
               <div class="o-box o-box--flush u-pr4 u-pt4 u-mb6 u-borderTop u-borderColor-gray400 u-border2">
-                <h4 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
+                <h3 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
                   <a href="/practice-areas/employment-law/">Employment Law</a>
-                </h4>
+                </h3>
                 <p class="u-txtSmall">
                   In this constantly evolving area of law, you need legal counsel with deep expertise and the tenacity
                   to relentlessly fight for your position.
@@ -69,9 +70,9 @@ import CTASection from '../components/CTASection.astro';
             </div>
             <div class="o-grid-cell u-sizeFull u-md-size1of2 u-lg-size3of12">
               <div class="o-box o-box--flush u-pr4 u-pt4 u-mb6 u-borderTop u-borderColor-gray400 u-border2">
-                <h4 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
+                <h3 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
                   <a href="/practice-areas/">Lobbying</a>
-                </h4>
+                </h3>
                 <p class="u-txtSmall">
                   Many attorneys can craft a decent argument, but few possess our ability to influence and persuade men
                   and women in power to create the change you want to see in your community.
@@ -80,9 +81,9 @@ import CTASection from '../components/CTASection.astro';
             </div>
             <div class="o-grid-cell u-sizeFull u-md-size1of2 u-lg-size3of12">
               <div class="o-box o-box--flush u-pr4 u-pt4 u-mb6 u-borderTop u-borderColor-gray400 u-border2">
-                <h4 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
+                <h3 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
                   <a href="/practice-areas/">Civil Rights</a>
-                </h4>
+                </h3>
                 <p class="u-txtSmall">
                   We are the defenders of the United States Constitution, tirelessly fighting to protect your rights from
                   those who would seek to deprive you through unjust actions, unjust laws, police brutality, and
@@ -92,9 +93,9 @@ import CTASection from '../components/CTASection.astro';
             </div>
             <div class="o-grid-cell u-sizeFull u-md-size1of2 u-lg-size3of12">
               <div class="o-box o-box--flush u-pr4 u-pt4 u-mb6 u-borderTop u-borderColor-gray400 u-border2">
-                <h4 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
+                <h3 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
                   <a href="/practice-areas/criminal-defense/">Criminal Defense</a>
-                </h4>
+                </h3>
                 <p class="u-txtSmall">
                   We represent people of all backgrounds and from every socio-economic class, in cases that range from
                   murder to local misdemeanors.
@@ -103,9 +104,9 @@ import CTASection from '../components/CTASection.astro';
             </div>
             <div class="o-grid-cell u-sizeFull u-md-size1of2 u-lg-size3of12">
               <div class="o-box o-box--flush u-pr4 u-pt4 u-mb6 u-borderTop u-borderColor-gray400 u-border2">
-                <h4 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
+                <h3 class="u-color-blue700 u-bold u-fontFamilySans u-allCaps u-txtSmall">
                   <a href="/practice-areas/">Estate Planning</a>
-                </h4>
+                </h3>
                 <p class="u-txtSmall">
                   To help you plan for the future, our office provides services in a wide range of areas such as Wills,
                   Trusts, Prenuptial Agreements, Advanced Directives, and more.

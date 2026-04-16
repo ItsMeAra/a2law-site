@@ -1,5 +1,6 @@
 ---
 title: Municipal Law
+description: Municipal law firm for California cities, counties, and agencies — contracts, litigation, and regulatory matters with Willoughby & Associates.
 listHeading: 'Our municipal law practice includes:'
 listItems:
   - Cities

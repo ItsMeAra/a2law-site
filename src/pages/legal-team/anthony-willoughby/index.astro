@@ -3,11 +3,31 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTASection from '../../../components/CTASection.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { partners } from '../../../data/team';
+import { META_DESCRIPTIONS } from '../../../consts';
+import { siteAssets } from '../../../data/siteAssets';
+import { buildPersonSchema } from '../../../lib/schema';
 
 const profile = partners.find((p) => p.id === 'anthonyw')!;
+
+const site = Astro.site;
+const logoUrl = site ? new URL(siteAssets.awLogo, site).href : siteAssets.awLogo;
+const jsonLdExtra =
+  site &&
+  buildPersonSchema(site, logoUrl, {
+    name: 'Anthony Willoughby',
+    url: '/legal-team/anthony-willoughby/',
+    jobTitle: 'Lead trial attorney and senior partner',
+    description: META_DESCRIPTIONS.anthonyWilloughby,
+    imageUrl: profile.headshot,
+  });
 ---
 
-<BaseLayout title="Anthony Willoughby" activeNav="team">
+<BaseLayout
+  title="Anthony Willoughby"
+  description={META_DESCRIPTIONS.anthonyWilloughby}
+  activeNav="team"
+  jsonLdExtra={jsonLdExtra || undefined}
+>
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
       <Breadcrumbs

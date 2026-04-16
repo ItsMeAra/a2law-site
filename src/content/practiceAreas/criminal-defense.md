@@ -1,5 +1,6 @@
 ---
 title: Criminal Defense
+description: Los Angeles criminal defense lawyers at Willoughby & Associates — from DUI to serious felonies, senior attorneys fight for your rights and freedom.
 listHeading: 'Our criminal defense practice includes:'
 listItems:
   - Assault

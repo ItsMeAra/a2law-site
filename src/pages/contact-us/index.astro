@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { META_DESCRIPTIONS } from '../../consts';
 ---
 
-<BaseLayout title="Contact Us" activeNav="contact">
+<BaseLayout title="Contact Us" description={META_DESCRIPTIONS.contact} activeNav="contact">
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
       <div class="aboutUs">
@@ -11,8 +12,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <header class="o-grid-cell u-mb5 u-lg-size8of12">
               <h1 class="u-txtCenter">Contact Us</h1>
               <p>
-                If you need legal counsel, Willoughby & Associates is here for you. Contact us and let our decades of
-                legal expertise support your case.
+                If you need legal counsel in the Los Angeles area, Willoughby & Associates is here for you. Reach our
+                Culver City office by phone or email, and let our decades of litigation experience support your case.
               </p>
             </header>
             <div class="o-grid-cell u-lg-size8of12">

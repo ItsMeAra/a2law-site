@@ -1,5 +1,6 @@
 ---
 title: Personal Injury
+description: Personal injury attorneys in Los Angeles — car accidents, wrongful death, premises liability, and serious injury claims with Willoughby & Associates.
 listHeading: 'Our personal injury practice includes:'
 listItems:
   - Motor Vehicle Accidents

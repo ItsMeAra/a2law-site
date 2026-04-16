@@ -3,7 +3,10 @@ import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteNav from '../components/SiteNav.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import SeoHead from '../components/SeoHead.astro';
+import JsonLd from '../components/JsonLd.astro';
 import { DEFAULT_DESCRIPTION, SITE_NAME } from '../consts';
+import { buildOrganizationWebSiteSchema } from '../lib/schema';
 import type { NavId } from '../consts';
 import { siteAssets } from '../data/siteAssets';
 
@@ -11,10 +14,29 @@ interface Props {
   title: string;
   description?: string;
   activeNav?: NavId;
+  /** Absolute or site-root URL for OG/Twitter image (optional; defaults to logo). */
+  image?: string;
+  noindex?: boolean;
+  /** `<html lang>` (e.g. `es` for Abogados). */
+  lang?: string;
+  /** Open Graph `og:type` (e.g. `article` for practice area pages). */
+  ogType?: string;
+  /** Optional extra JSON-LD document (e.g. `Person` on attorney bios). */
+  jsonLdExtra?: Record<string, unknown>;
 }
 
-const { title, description = DEFAULT_DESCRIPTION, activeNav } = Astro.props;
-const fullTitle = `${title} - ${SITE_NAME} - ${SITE_NAME}`;
+const {
+  title,
+  description = DEFAULT_DESCRIPTION,
+  activeNav,
+  image,
+  noindex = false,
+  lang = 'en',
+  ogType,
+  jsonLdExtra,
+} = Astro.props;
+
+const fullTitle = `${title} | ${SITE_NAME}`;
 
 /** Canonical URL: production origin + path (matches `trailingSlash: 'always'`; `.html` paths unchanged). */
 function canonicalPath(pathname: string): string {
@@ -27,10 +49,21 @@ function canonicalPath(pathname: string): string {
 
 const site = Astro.site;
 const canonicalHref = site ? new URL(canonicalPath(Astro.url.pathname), site).href : undefined;
+
+function socialImageAbsolute(): string {
+  if (image?.startsWith('http://') || image?.startsWith('https://')) return image;
+  if (image?.startsWith('/')) return site ? new URL(image, site).href : image;
+  return site ? new URL(siteAssets.awLogo, site).href : siteAssets.awLogo;
+}
+
+const socialImageUrl = socialImageAbsolute();
+
+const organizationSchema =
+  site ? buildOrganizationWebSiteSchema(site, socialImageUrl) : null;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -39,7 +72,16 @@ const canonicalHref = site ? new URL(canonicalPath(Astro.url.pathname), site).hr
     <link rel="dns-prefetch" href="//www.google-analytics.com" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    {canonicalHref && <link rel="canonical" href={canonicalHref} />}
+    <SeoHead
+      title={fullTitle}
+      description={description}
+      canonicalHref={canonicalHref}
+      socialImageUrl={socialImageUrl}
+      noindex={noindex}
+      ogType={ogType}
+    />
+    {organizationSchema && <JsonLd data={organizationSchema} />}
+    {jsonLdExtra && <JsonLd data={jsonLdExtra} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

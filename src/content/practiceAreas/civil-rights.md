@@ -1,5 +1,6 @@
 ---
 title: Civil Rights
+description: Civil rights attorneys in Los Angeles — police misconduct, fair housing, education access, and constitutional claims with Willoughby & Associates.
 listHeading: 'Our Civil Rights Practice Includes:'
 listItems:
   - Police Brutality

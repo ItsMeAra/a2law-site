@@ -2,9 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
 import { aboutPhotoStrip } from '../../data/about';
+import { META_DESCRIPTIONS } from '../../consts';
 ---
 
-<BaseLayout title="About Us" activeNav="about">
+<BaseLayout title="About Us" description={META_DESCRIPTIONS.about} activeNav="about">
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
       <section class="u-bgColor-gray200 u-py8">
@@ -18,7 +19,7 @@ import { aboutPhotoStrip } from '../../data/about';
               criminal defense, municipal litigation, employment law, commercial litigation, family law, and personal
               injury litigation.
             </p>
-            <h3 class="u-h4 u-color-blue800">Our clients include:</h3>
+            <h2 class="u-h4 u-color-blue800">Our clients include:</h2>
             <ul class="u-mb4">
               <li>Individual plaintiffs</li>
               <li>Criminal defendants</li>
@@ -42,7 +43,7 @@ import { aboutPhotoStrip } from '../../data/about';
               legal case is in capable hands that are ready to fight in the courts for you.
             </p>
             <p>
-              Your legal matters can be a source of significant source of stress and worry; we’re here to alleviate
+              Your legal matters can be a significant source of stress and worry; we’re here to alleviate
               that pressure. Plus, we do all of this at reasonable rates that make high-quality legal counsel affordable
               to a diverse group of clients.
             </p>

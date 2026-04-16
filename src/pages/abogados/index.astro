@@ -2,9 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
 import { partners, ofCounsel, staff } from '../../data/team';
+import { META_DESCRIPTIONS } from '../../consts';
 ---
 
-<BaseLayout title="Abogados" activeNav="abogados">
+<BaseLayout title="Abogados" description={META_DESCRIPTIONS.abogados} activeNav="abogados" lang="es">
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
       <section class="u-bgColor-gray200 u-py8">
@@ -18,7 +19,7 @@ import { partners, ofCounsel, staff } from '../../data/team';
               defensa criminal, litigación municipal, leyes de empleo, litigación comercial, ley de familia, y
               litigación de lesiones personal.
             </p>
-            <h3 class="u-h4 u-color-blue800">Nuestros clientes incluyen:</h3>
+            <h2 class="u-h4 u-color-blue800">Nuestros clientes incluyen:</h2>
             <ul class="u-mb4">
               <li>Demandantes Individuales</li>
               <li>Demandantes Criminales</li>

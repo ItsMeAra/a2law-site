@@ -1,5 +1,6 @@
 ---
 title: Estate Planning
+description: Estate planning counsel in Los Angeles — wills, trusts, guardianship, and special-needs planning with Willoughby & Associates.
 listHeading: 'Our Estate Planning Practice Includes:'
 listItems:
   - Passing of valuables

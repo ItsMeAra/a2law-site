@@ -1,5 +1,6 @@
 ---
 title: Appellate Advocacy
+description: Appellate advocacy in Los Angeles — Willoughby & Associates handles civil and criminal appeals, constitutional issues, and post-trial relief for California clients.
 listHeading: 'Our Appellate Practice includes:'
 listItems:
   - Civil Rights
