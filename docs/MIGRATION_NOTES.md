@@ -8,4 +8,4 @@ The legacy **`awlaw`** stylesheet (`public/assets/css/awlaw.min.css`) still prov
 
 ## Domain
 
-Production: **`www.firmwilloughby.com`** — ensure [`public/CNAME`](../public/CNAME) is at the root of your static host (e.g. GitHub Pages).
+Production: **`www.firmwilloughby.com`**. Configure the custom domain in the **Netlify** dashboard (DNS points to Netlify). The [`public/CNAME`](../public/CNAME) file is optional metadata; routing is controlled in Netlify, not by that file alone.
