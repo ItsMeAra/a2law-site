@@ -1,0 +1,40 @@
+---
+/** Simple trail: Home > Section > Current page */
+export interface Crumb {
+  label: string;
+  /** Omit on the current page segment */
+  href?: string;
+}
+
+interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="u-pt4 u-pb2" aria-label="Breadcrumb">
+  <ol
+    class="u-m0 u-txtSmaller u-color-gray800 u-flex u-flexWrap u-itemsCenter"
+    style="list-style: none; padding: 0; gap: 0.25rem 0;"
+  >
+    {
+      items.map((crumb, i) => (
+        <li class="u-flex u-itemsCenter">
+          {i > 0 ? (
+            <span class="u-mx2 u-color-gray400" aria-hidden="true">
+              /
+            </span>
+          ) : null}
+          {crumb.href ? (
+            <a href={crumb.href} class="u-color-blue700 u-underline">
+              {crumb.label}
+            </a>
+          ) : (
+            <span aria-current="page">{crumb.label}</span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

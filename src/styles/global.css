@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Legacy `awlaw` `.o-ratio` uses a ::before padding hack; keep absolutely
+ * positioned children above that layer and fill the frame so photos read clearly.
+ */
+.o-ratio > a,
+.o-ratio > img {
+  z-index: 1;
+}
+
+.o-ratio img {
+  object-fit: cover;
+  object-position: center center;
+  height: 100%;
+}
+
+.photoStrip img {
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  display: block;
+}
+
+/* Home hero (`.aboutUs` sizing/min-height lives in legacy `awlaw` CSS). */
+.aboutUs {
+  background-image: url('../images/photos/group-wide.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+}

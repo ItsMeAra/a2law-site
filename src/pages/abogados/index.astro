@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { partners, ofCounsel, staff } from '../../data/team';
+---
+
+<BaseLayout title="Abogados" activeNav="abogados">
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <section class="u-bgColor-gray200 u-py8">
+        <div class="o-grid o-grid--alignCenter">
+          <header class="o-grid-cell u-mb5">
+            <h1 class="u-txtCenter">Abogados</h1>
+          </header>
+          <div class="o-grid-cell u-lg-size8of12">
+            <p>
+              Basado en Los Angeles, Willoughby y Asociados es una firma de litigación completa que se es especializa en
+              defensa criminal, litigación municipal, leyes de empleo, litigación comercial, ley de familia, y
+              litigación de lesiones personal.
+            </p>
+            <h3 class="u-h4 u-color-blue800">Nuestros clientes incluyen:</h3>
+            <ul class="u-mb4">
+              <li>Demandantes Individuales</li>
+              <li>Demandantes Criminales</li>
+              <li>Negocios Pequeños y Grandes</li>
+              <li>Municipal y otras agencias de gobierno</li>
+            </ul>
+            <p>
+              En nuestra sociedad litigiosa, ninguna persona es inmune a juicios, y asuntos legales pueden salir de
+              control y impactar la calidad de su vida. Por eso aplicamos mas de 20 años de experiencia para proteger sus
+              intereses.
+            </p>
+            <p>
+              Desde litigación corporativo hasta defensa criminal, estamos constantemente comprometidos a cada caso de
+              nuestros clientes. Con Willoughby y Asociados no trabaja con paralegales o personales administrativos, al
+              contrario, usted tendrá la atención indivisa del abogado cual entiende la ley extensivamente y sabemos cómo
+              mejor prepara su caso para el resultado más exitoso
+            </p>
+            <p>
+              Además, traemos pasión, urgencia, y profesionalismo a cada caso que trabajamos. Atendemos cada preocupación
+              con una atención meticulosa a los detalles y la más alta prioridad. Como resultado, usted puede descansar
+              sabiendo que su caso legal está en manos capaces que están listas apara luchar en corte para usted.
+            </p>
+            <p>
+              Sus asuntos legales pueden ser una fuente de estrés y preocupación, nosotros estamos aquí para aliviar esa
+              presión. Además, hacemos todo esto a precios razonables que hacen consejo legal de alta calidad asequible a
+              un grupo diverso de clientes.
+            </p>
+            <p>
+              <a class="u-underline" href="/contact-us/">Contáctenos</a> y aprenda como nosotros podemos ayudar resolver
+              sus asuntos legales.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="lawyers" class="ourTeam u-py8 u-bgColor-blue100">
+        <div class="o-grid o-grid--alignCenter">
+          <header class="o-grid-cell u-mb5">
+            <h1 class="u-txtCenter">Our Lawyers</h1>
+          </header>
+          <div class="o-grid-cell u-lg-size1of2">
+            <div id="anthonyw" class="u-borderAll u-bgColor-gray100 u-borderColor-gray400 u-border1 u-mb5">
+              <div class="o-ratio o-ratio--4x3 u-mb3">
+                <div class="o-ratio-item">
+                  <img
+                    class="u-sizeFull o-ratio-item"
+                    alt="Anthony Willoughby"
+                    src={partners[0].headshot}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <h3 class="u-bold u-txtCenter u-py3 u-mb1">Anthony Willoughby</h3>
+              <div class="o-box u-px5 u-pb5 u-pt2 u-txtSmaller">
+                <p>
+                  Anthony Willoughby es el principal abogado litigante y socio principal del bufete de abogados de
+                  Willoughby y Asociados. Aporta más de dos décadas de experiencia en cada caso, proporcionando una
+                  combinación de perspicacia legal y servicio al cliente que no tiene parangón en el campo.
+                </p>
+                <div class="u-flex">
+                  <a class="button button--primary u-size1of2 u-mr4" href="mailto:anthony@firmwilloughby.us">
+                    Email
+                  </a>
+                  <a class="button button--primary button--outline u-size1of2" href="tel:3106420600"> Call </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="o-grid-cell u-lg-size1of2">
+            <div id="anthonyw2" class="u-borderAll u-bgColor-gray100 u-borderColor-gray400 u-border1 u-mb5">
+              <div class="o-ratio o-ratio--4x3 u-mb3">
+                <div class="o-ratio-item">
+                  <img
+                    class="u-sizeFull o-ratio-item"
+                    alt="Anthony Willoughby II"
+                    src={partners[1].headshot}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <h3 class="u-bold u-txtCenter u-py3 u-mb1">Anthony Willoughby II</h3>
+              <div class="o-box u-px5 u-pb5 u-pt2 u-txtSmaller">
+                <p>
+                  Anthony Willoughby II es el abogado gerente en el bufete de abogados de Willoughby y Asociados. Es un
+                  hombre de muchos talentos y un apasionado personal que lucha incansablemente por los derechos
+                  institucionales de los clientes.
+                </p>
+                <div class="u-flex">
+                  <a class="button button--primary u-size1of2 u-mr4" href="mailto:anthonyw2@firmwilloughby.us">
+                    Email
+                  </a>
+                  <a class="button button--primary button--outline u-size1of2" href="tel:3106420600"> Call </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="ourTeam u-py8 u-bgColor-gray200">
+        <div class="o-grid o-grid--fulll o-grid--alignCenter">
+          <header class="o-grid-cell u-mb5">
+            <h2 class="u-txtCenter">Of Counsel</h2>
+          </header>
+          <div class="o-grid-cell u-md-size1of2 u-lg-size3of10">
+            <div class="u-borderAll u-bgColor-gray100 u-borderColor-gray400 u-border1 u-mb5">
+              <div class="o-ratio o-ratio--4x3">
+                <div class="o-ratio-item">
+                  <img
+                    class="u-sizeFull o-ratio-item"
+                    alt="Jason Buccat"
+                    src={ofCounsel[0].headshot}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <h3 class="u-h4 u-txtCenter u-py3">Jason Buccat</h3>
+            </div>
+          </div>
+          <div class="o-grid-cell u-md-size1of2 u-lg-size3of10">
+            <div class="u-borderAll u-bgColor-gray100 u-borderColor-gray400 u-border1 u-mb5">
+              <div class="o-ratio o-ratio--4x3">
+                <div class="o-ratio-item">
+                  <img
+                    class="u-sizeFull o-ratio-item"
+                    alt="Jovan Blacknell"
+                    src={ofCounsel[1].headshot}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <h3 class="u-h4 u-txtCenter u-py3">Jovan Blacknell</h3>
+            </div>
+          </div>
+          <div class="o-grid-cell u-md-size1of2 u-lg-size3of10">
+            <div class="u-borderAll u-bgColor-gray100 u-borderColor-gray400 u-border1 u-mb5">
+              <div class="o-ratio o-ratio--4x3">
+                <div class="o-ratio-item">
+                  <img
+                    class="u-sizeFull o-ratio-item"
+                    alt="Ron Epman"
+                    src={ofCounsel[2].headshot}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <h3 class="u-h4 u-txtCenter u-py3">Ron Epman</h3>
+            </div>
+          </div>
+          <div class="o-grid-cell u-md-size1of2 u-lg-size3of10">
+            <div class="u-borderAll u-bgColor-gray100 u-borderColor-gray400 u-border1 u-mb5">
+              <div class="o-ratio o-ratio--4x3">
+                <div class="o-ratio-item">
+                  <img
+                    class="u-sizeFull o-ratio-item"
+                    alt="Jaaye Person-Lynn"
+                    src={ofCounsel[3].headshot}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <h3 class="u-h4 u-txtCenter u-py3">Jaaye Person-Lynn</h3>
+            </div>
+          </div>
+          <div class="o-grid-cell u-md-size1of2 u-lg-size3of10">
+            <div class="u-borderAll u-bgColor-gray100 u-borderColor-gray400 u-border1 u-mb5">
+              <div class="o-ratio o-ratio--4x3">
+                <div class="o-ratio-item">
+                  <img
+                    class="u-sizeFull o-ratio-item"
+                    alt="Kellen Davis"
+                    src={ofCounsel[4].headshot}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <h3 class="u-h4 u-txtCenter u-py3">Kellen Davis</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="ourTeam u-py8 u-bgColor-gray300">
+        <div class="o-grid o-grid--fulll o-grid--alignCenter">
+          <header class="o-grid-cell u-mb5">
+            <h2 class="u-txtCenter">Our Staff</h2>
+          </header>
+          <div class="o-grid-cell u-md-size1of2 u-lg-size3of12">
+            <div class="u-borderAll u-bgColor-gray100 u-borderColor-gray400 u-border1 u-mb5">
+              <div class="o-ratio o-ratio--4x3">
+                <div class="o-ratio-item">
+                  <img
+                    class="u-sizeFull o-ratio-item"
+                    alt="Monica Chaidez"
+                    src={staff[0].headshot}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <h3 class="u-h4 u-txtCenter u-py3">Monica Chaidez</h3>
+            </div>
+          </div>
+          <div class="o-grid-cell u-md-size1of2 u-lg-size3of12">
+            <div class="u-borderAll u-bgColor-gray100 u-borderColor-gray400 u-border1 u-mb5">
+              <div class="o-ratio o-ratio--4x3">
+                <div class="o-ratio-item">
+                  <img
+                    class="u-sizeFull o-ratio-item"
+                    alt="Michael Willoughby"
+                    src={staff[1].headshot}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <h3 class="u-h4 u-txtCenter u-py3">Michael Willoughby</h3>
+            </div>
+          </div>
+          <div class="o-grid-cell u-md-size1of2 u-lg-size3of12">
+            <div class="u-borderAll u-bgColor-gray100 u-borderColor-gray400 u-border1 u-mb5">
+              <div class="o-ratio o-ratio--4x3">
+                <div class="o-ratio-item">
+                  <img
+                    class="u-sizeFull o-ratio-item"
+                    alt="Gladis Medina"
+                    src={staff[2].headshot}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <h3 class="u-h4 u-txtCenter u-py3">Gladis Medina</h3>
+            </div>
+          </div>
+          <div class="o-grid-cell u-md-size1of2 u-lg-size3of12">
+            <div class="u-borderAll u-bgColor-gray100 u-borderColor-gray400 u-border1 u-mb5">
+              <div class="o-ratio o-ratio--4x3">
+                <div class="o-ratio-item">
+                  <img
+                    class="u-sizeFull o-ratio-item"
+                    alt="Norma Alvarez"
+                    src={staff[3].headshot}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <h3 class="u-h4 u-txtCenter u-py3">Norma Alvarez</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <CTASection />
+    </div>
+  </main>
+</BaseLayout>

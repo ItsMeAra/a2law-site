@@ -1,0 +1,18 @@
+---
+import { PHONE_DISPLAY, PHONE_TEL, ADDRESS_LINES } from '../consts';
+import { siteAssets } from '../data/siteAssets';
+---
+
+<header class="siteHeader u-pt4 u-pb3 u-mb3" role="banner">
+  <a class="siteHeader-logo u-mb5 u-mt3 u-lg-mt0 u-lg-mb0" rel="author" href="/">
+    <img src={siteAssets.awLogo} alt="Willoughby & Associates" width="180" height="auto" />
+  </a>
+  <div class="u-txtCenter u-lg-txtRight">
+    <p class="u-m0 u-txtSmallest u-color-gray800">
+      <a href={`tel:${PHONE_TEL}`} class="u-color-blue700">{PHONE_DISPLAY}</a>
+    </p>
+    <p class="u-m0 u-txtSmallest u-color-gray800">
+      {ADDRESS_LINES.join(', ')}
+    </p>
+  </div>
+</header>

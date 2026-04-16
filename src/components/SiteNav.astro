@@ -1,0 +1,49 @@
+---
+import { NAV_ITEMS } from '../consts';
+import type { NavId } from '../consts';
+
+interface Props {
+  activeNav?: NavId;
+}
+
+const { activeNav } = Astro.props;
+
+function isActive(id: NavId): boolean {
+  return activeNav === id;
+}
+---
+
+<div class="u-bgColor-gray100">
+  <a
+    class="button button--light u-sizeFull u-lg-hide navToggle js-navToggle"
+    href="#menu"
+    aria-controls="menu"
+    aria-expanded="false"
+    id="nav-toggle-btn"
+  >
+    Menu +
+  </a>
+  <nav class="navigation js-navigation" aria-label="Primary">
+    <ul id="menu" class="navigation-list list u-m0">
+      {
+        NAV_ITEMS.map((item) => (
+          <li class="navigation-item u-lg-ml3">
+            <a
+              href={item.href}
+              class:list={[
+                'navigation-item-link',
+                'u-bold',
+                'u-txtCenter',
+                'u-txtSmallest',
+                'u-allCaps',
+                { 'is-active': isActive(item.id) },
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</div>

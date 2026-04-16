@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Not Found">
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <style>
+        .container {
+          margin: 10px auto;
+          max-width: 600px;
+          text-align: center;
+        }
+        .container h1 {
+          margin: 30px 0;
+          font-size: 4em;
+          line-height: 1;
+          letter-spacing: -1px;
+        }
+      </style>
+      <div class="container">
+        <h1>404</h1>
+        <p><strong>Page not found :(</strong></p>
+        <p>The requested page could not be found.</p>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

@@ -1,0 +1,94 @@
+{
+  "items": [
+    {
+      "title": "Ramirez v. Jimenez",
+      "category": "Fraud",
+      "situation": "Lost home and assets",
+      "outcome": "Home and assets returned"
+    },
+    {
+      "title": "Medel v. Doe",
+      "category": "Car Accident",
+      "situation": "Car totaled; Client hospitalized",
+      "outcome": "Settlement for client"
+    },
+    {
+      "title": "Smith v. Lacey",
+      "category": "Assault & Battery",
+      "situation": "Client hospitalized",
+      "outcome": "Settlement for client"
+    },
+    {
+      "title": "Doe v. Classified",
+      "category": "Sexual Assault",
+      "situation": "Client assaulted by employer",
+      "outcome": "Settlement for client"
+    },
+    {
+      "title": "People v. Webb",
+      "category": "Gun Possession",
+      "situation": "Client arrested for lawful carry",
+      "outcome": "All charges dropped"
+    },
+    {
+      "title": "Bates v. LAC",
+      "category": "Police Misconduct",
+      "situation": "Client shot and mistreated",
+      "outcome": "Settlement for client"
+    },
+    {
+      "title": "Prado v. Sanchez",
+      "category": "Assault & Battery",
+      "situation": "Appeal of Court ruling",
+      "outcome": "Overturned in favor of client"
+    },
+    {
+      "title": "Haslip v. Educational Testing Service",
+      "category": "SAT Cheating",
+      "situation": "Challenge to SAT score of Student Athlete",
+      "outcome": "Compensation to Student Athlete"
+    },
+    {
+      "title": "People v. Strider",
+      "category": "Appellate Case",
+      "situation": "4th Amendment Police Search and Seizure",
+      "outcome": "Redefined California law"
+    },
+    {
+      "title": "Johnson v. ICEF",
+      "category": "Employment",
+      "situation": "Sexual Harassment",
+      "outcome": "Verdict for the Plaintiff"
+    },
+    {
+      "title": "Landrum v. Claremont",
+      "category": "Police Misconduct",
+      "situation": "Fatal Shooting by Police Officer",
+      "outcome": "Compensation to Victim’s Family"
+    },
+    {
+      "title": "People v. Ron Beilke",
+      "category": "Political Corruption",
+      "situation": "Conflict of Interest",
+      "outcome": "Not Guilty on all felony counts"
+    },
+    {
+      "title": "People v. Fernando Garcia",
+      "category": "Murder Trial",
+      "situation": "Double murder",
+      "outcome": "Case Dismissed during trial"
+    },
+    {
+      "title": "People v. Beerly Tilmutt",
+      "category": "Murder Trial",
+      "situation": "Attempted murder with a confession",
+      "outcome": "Not Guilty on all counts"
+    },
+    {
+      "title": "People v. Eric Johnson",
+      "category": "Murder Trial",
+      "situation": "2 counts attempted murder <br />4 counts robbery <br />2 counts car jacking",
+      "outcome": "Not Guilty on all counts"
+    }
+  ]
+}

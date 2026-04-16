@@ -1,0 +1,36 @@
+---
+import { PRACTICE_AREA_LINKS } from '../data/practice-area-nav';
+
+interface Props {
+  activeSlug: string;
+}
+
+const { activeSlug } = Astro.props;
+---
+
+<div class="sideNav">
+  <h4 class="u-color-blue800">Our Practice Areas</h4>
+  <ul class="u-mb4 u-txtSmall">
+    {
+      PRACTICE_AREA_LINKS.map((item) => (
+        <li class="u-mb1">
+          {item.href ? (
+            <a
+              href={item.href}
+              class:list={['navigation-item-link', { 'is-active u-bold': item.slug === activeSlug }]}
+            >
+              {item.label}
+            </a>
+          ) : (
+            <span class="navigation-item-link">{item.label}</span>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+  <hr class="hr u-my4" />
+  <p class="u-txtSmaller">
+    <a class="u-underline" href="/contact-us/">Contact us</a> now for a free consult. Learn how our legal
+    expertise and dedicated client service can help you obtain a favorable outcome in your legal matter.
+  </p>
+</div>

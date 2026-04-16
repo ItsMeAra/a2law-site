@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import PracticeSideNav from '../../components/PracticeSideNav.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const areas = await getCollection('practiceAreas');
+  return areas.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title} activeNav="practice">
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <section class="u-bgColor-gray200 u-py8">
+        <div class="o-grid">
+          <header class="o-grid-cell u-mb5">
+            <h1>{entry.data.title}</h1>
+          </header>
+          <div class="o-grid-cell u-lg-size8of12">
+            <Content />
+            {
+              entry.data.listHeading && entry.data.listItems?.length ? (
+                <>
+                  <h3 class="u-color-blue800">{entry.data.listHeading}</h3>
+                  <ul>
+                    {entry.data.listItems.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : null
+            }
+          </div>
+          <div class="o-grid-cell u-lg-push1of12 u-lg-size3of12">
+            <PracticeSideNav activeSlug={entry.slug} />
+          </div>
+        </div>
+      </section>
+      <CTASection />
+    </div>
+  </main>
+</BaseLayout>

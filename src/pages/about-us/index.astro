@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { aboutPhotoStrip } from '../../data/about';
+---
+
+<BaseLayout title="About Us" activeNav="about">
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <section class="u-bgColor-gray200 u-py8">
+        <div class="o-grid o-grid--alignCenter">
+          <header class="o-grid-cell u-mb5">
+            <h1 class="u-txtCenter">About Us</h1>
+          </header>
+          <div class="o-grid-cell u-lg-size8of12">
+            <p>
+              Based in Los Angeles, Willoughby & Associates is a full-service litigation law firm that specializes in
+              criminal defense, municipal litigation, employment law, commercial litigation, family law, and personal
+              injury litigation.
+            </p>
+            <h3 class="u-h4 u-color-blue800">Our clients include:</h3>
+            <ul class="u-mb4">
+              <li>Individual plaintiffs</li>
+              <li>Criminal defendants</li>
+              <li>Large and small businesses</li>
+              <li>Municipal and other government agencies</li>
+            </ul>
+            <p>
+              In our litigious society, no one is immune from lawsuits, and legal matters can quickly spiral out of
+              control to impact your quality of life. That’s why we apply over 20 years of experience to protecting your
+              interests.
+            </p>
+            <p>
+              From corporate litigation to criminal defense, we are steadfastly committed to each client’s case. With
+              Willoughby & Associates, you don’t work with paralegals or administrative staff. Rather, you get the
+              undivided attention of senior attorneys who understand the law in-depth and know how to best prepare your
+              case for a successful outcome.
+            </p>
+            <p>
+              Moreover, we bring passion, urgency, and professionalism to everything we do. We address each concern
+              with meticulous attention to detail and the highest priority. As a result, you can rest assured that your
+              legal case is in capable hands that are ready to fight in the courts for you.
+            </p>
+            <p>
+              Your legal matters can be a source of significant source of stress and worry; we’re here to alleviate
+              that pressure. Plus, we do all of this at reasonable rates that make high-quality legal counsel affordable
+              to a diverse group of clients.
+            </p>
+            <p>
+              <a class="u-underline" href="/contact-us/">Contact Us</a> and learn how we can help resolve your legal
+              matters.
+            </p>
+          </div>
+        </div>
+      </section>
+      <div class="photoStrip">
+        <div class="u-sm-hide u-md-hide">
+          <img src={aboutPhotoStrip.left} class="u-sizeFull" alt="" loading="lazy" />
+        </div>
+        <div>
+          <img src={aboutPhotoStrip.center} class="u-sizeFull" alt="" loading="lazy" />
+        </div>
+        <div class="u-sm-hide u-md-hide">
+          <img src={aboutPhotoStrip.right} class="u-sizeFull" alt="" loading="lazy" />
+        </div>
+      </div>
+      <CTASection />
+    </div>
+  </main>
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+import { PHONE_DISPLAY, PHONE_TEL, ADDRESS_LINES, COPYRIGHT_YEAR } from '../consts';
+import { siteAssets } from '../data/siteAssets';
+---
+
+<div class="u-pb2 u-pt5">
+  <div class="o-grid o-grid--full">
+    <div class="o-grid-cell u-lg-size8of12">
+      <div class="u-lg-flex u-lg-itemsCenter u-mb3">
+        <div class="u-lg-mr4 u-mb4 u-lg-mb0 u-mxAuto u-txtCenter">
+          <a class="siteHeader-logo u-mb4 u-lg-mb0" rel="author" href="/">
+            <img src={siteAssets.shieldLogo} width="50" height="50" alt="" />
+          </a>
+        </div>
+        <div class="u-flexGrow1 u-mxAuto u-txtCenter u-lg-txtLeft">
+          <p class="u-m0 u-txtSmallest u-color-gray800">
+            Call us at <a href={`tel:${PHONE_TEL}`} class="u-color-blue700">{PHONE_DISPLAY}</a> for a free
+            consultation.
+          </p>
+          <p class="u-m0 u-txtSmallest u-color-gray800">
+            {ADDRESS_LINES.join(', ')}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="o-grid-cell u-lg-size4of12">
+      <p class="copyright u-txtSmallest u-lg-mb2 u-txtCenter u-lg-txtRight">
+        &copy; {COPYRIGHT_YEAR} Willoughby & Associates. All rights reserved.
+      </p>
+      <p class="u-txtMicro u-txtCenter u-lg-txtRight">
+        <a
+          href="http://itsmeara.com"
+          class="u-txtMicro u-color-blue700 u-bgColor-blue100 u-py1 u-px3 u-inlineBlock u-hoverDim"
+        >
+          Website By: Ara
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
