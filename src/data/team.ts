@@ -1,4 +1,4 @@
-/** Legal team page content (legacy `legal-team/index.html`). */
+/** Legal team page content. */
 
 import { imageUrl } from '../lib/imageUrl';
 
