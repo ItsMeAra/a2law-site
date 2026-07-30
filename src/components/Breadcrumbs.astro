@@ -1,4 +1,7 @@
 ---
+import JsonLd from './JsonLd.astro';
+import { buildBreadcrumbSchema } from '../lib/schema';
+
 /** Simple trail: Home > Section > Current page */
 export interface Crumb {
   label: string;
@@ -11,8 +14,33 @@ interface Props {
 }
 
 const { items } = Astro.props;
+const site = Astro.site;
+
+function canonicalPath(pathname: string): string {
+  const path = pathname.split('?')[0].split('#')[0] || '/';
+  if (path === '/404' || path === '/404/') return '/404.html';
+  if (path.endsWith('.html')) return path;
+  if (path !== '/' && !path.endsWith('/')) return `${path}/`;
+  return path;
+}
+
+const currentHref = site
+  ? new URL(canonicalPath(Astro.url.pathname), site).href
+  : undefined;
+const schemaItems = currentHref
+  ? items.map((item, i) =>
+      i === items.length - 1 && !item.href ? { ...item, href: currentHref } : item,
+    )
+  : items;
+const breadcrumbSchema = site ? buildBreadcrumbSchema(site, schemaItems) : null;
+const breadcrumbJson = breadcrumbSchema
+  ? JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')
+  : null;
 ---
 
+{breadcrumbJson && (
+  <script type="application/ld+json" set:html={breadcrumbJson} />
+)}
 <nav class="u-pt4 u-pb2" aria-label="Breadcrumb">
   <ol
     class="u-m0 u-txtSmaller u-color-gray800 u-flex u-flexWrap u-itemsCenter"

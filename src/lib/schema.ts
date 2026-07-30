@@ -76,6 +76,90 @@ export function buildOrganizationWebSiteSchema(
   };
 }
 
+/** `WebPage` (or subtype) for any page. */
+export function buildWebPageSchema(
+  siteUrl: URL,
+  canonicalHref: string,
+  fullTitle: string,
+  description: string,
+  type = 'WebPage',
+): Record<string, unknown> {
+  const base = siteUrl.href.endsWith('/') ? siteUrl.href : `${siteUrl.href}/`;
+  const orgId = new URL('#organization', base).href;
+  const websiteId = new URL('#website', base).href;
+  const pageId = `${canonicalHref}#webpage`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': type,
+    '@id': pageId,
+    url: canonicalHref,
+    name: fullTitle,
+    description,
+    isPartOf: { '@id': websiteId },
+    about: { '@id': orgId },
+  };
+}
+
+/** A single legal-service offering (e.g. a practice area). */
+export function buildServiceSchema(
+  siteUrl: URL,
+  service: {
+    name: string;
+    url: string;
+    description: string;
+  },
+): Record<string, unknown> {
+  const base = siteUrl.href.endsWith('/') ? siteUrl.href : `${siteUrl.href}/`;
+  const orgId = new URL('#organization', base).href;
+  const serviceUrl =
+    service.url.startsWith('http://') || service.url.startsWith('https://')
+      ? service.url
+      : new URL(service.url.replace(/^\//, ''), base).href;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LegalService',
+    '@id': `${serviceUrl}#service`,
+    name: service.name,
+    url: serviceUrl,
+    description: service.description,
+    parentOrganization: { '@id': orgId },
+    areaServed: {
+      '@type': 'City',
+      name: 'Los Angeles',
+      containedInPlace: { '@type': 'State', name: 'California' },
+    },
+  };
+}
+
+/** `BreadcrumbList` schema for visual breadcrumb trails. */
+export function buildBreadcrumbSchema(
+  siteUrl: URL,
+  items: Array<{ label: string; href?: string }>,
+): Record<string, unknown> {
+  const base = siteUrl.href.endsWith('/') ? siteUrl.href : `${siteUrl.href}/`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => {
+      const listItem: Record<string, unknown> = {
+        '@type': 'ListItem',
+        position: i + 1,
+        name: item.label,
+      };
+      if (item.href) {
+        listItem.item =
+          item.href.startsWith('http://') || item.href.startsWith('https://')
+            ? item.href
+            : new URL(item.href.replace(/^\//, ''), base).href;
+      }
+      return listItem;
+    }),
+  };
+}
+
 export function buildPersonSchema(
   siteUrl: URL,
   logoAbsoluteUrl: string,

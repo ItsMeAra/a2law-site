@@ -6,7 +6,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 import SeoHead from '../components/SeoHead.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { DEFAULT_DESCRIPTION, SITE_NAME } from '../consts';
-import { buildOrganizationWebSiteSchema } from '../lib/schema';
+import { buildOrganizationWebSiteSchema, buildWebPageSchema } from '../lib/schema';
 import type { NavId } from '../consts';
 import { siteAssets } from '../data/siteAssets';
 
@@ -21,6 +21,8 @@ interface Props {
   lang?: string;
   /** Open Graph `og:type` (e.g. `article` for practice area pages). */
   ogType?: string;
+  /** Schema.org `@type` for the page-level WebPage node (default: `WebPage`). */
+  webPageType?: string;
   /** Optional extra JSON-LD document (e.g. `Person` on attorney bios). */
   jsonLdExtra?: Record<string, unknown>;
 }
@@ -33,6 +35,7 @@ const {
   noindex = false,
   lang = 'en',
   ogType,
+  webPageType = 'WebPage',
   jsonLdExtra,
 } = Astro.props;
 
@@ -60,6 +63,11 @@ const socialImageUrl = socialImageAbsolute();
 
 const organizationSchema =
   site ? buildOrganizationWebSiteSchema(site, socialImageUrl) : null;
+
+const webPageSchema =
+  site && canonicalHref
+    ? buildWebPageSchema(site, canonicalHref, fullTitle, description, webPageType)
+    : null;
 ---
 
 <!doctype html>
@@ -80,8 +88,24 @@ const organizationSchema =
       noindex={noindex}
       ogType={ogType}
     />
-    {organizationSchema && <JsonLd data={organizationSchema} />}
-    {jsonLdExtra && <JsonLd data={jsonLdExtra} />}
+    {organizationSchema && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(organizationSchema).replace(/</g, '\\u003c')}
+      />
+    )}
+    {webPageSchema && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(webPageSchema).replace(/</g, '\\u003c')}
+      />
+    )}
+    {jsonLdExtra && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(jsonLdExtra).replace(/</g, '\\u003c')}
+      />
+    )}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
