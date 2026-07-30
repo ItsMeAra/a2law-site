@@ -124,7 +124,7 @@ export function buildServiceSchema(
     name: service.name,
     url: serviceUrl,
     description: service.description,
-    provider: { '@id': orgId },
+    parentOrganization: { '@id': orgId },
     areaServed: {
       '@type': 'City',
       name: 'Los Angeles',
