@@ -88,9 +88,24 @@ const webPageSchema =
       noindex={noindex}
       ogType={ogType}
     />
-    {organizationSchema && <JsonLd data={organizationSchema} />}
-    {webPageSchema && <JsonLd data={webPageSchema} />}
-    {jsonLdExtra && <JsonLd data={jsonLdExtra} />}
+    {organizationSchema && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(organizationSchema).replace(/</g, '\\u003c')}
+      />
+    )}
+    {webPageSchema && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(webPageSchema).replace(/</g, '\\u003c')}
+      />
+    )}
+    {jsonLdExtra && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(jsonLdExtra).replace(/</g, '\\u003c')}
+      />
+    )}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
