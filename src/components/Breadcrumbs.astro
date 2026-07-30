@@ -15,7 +15,13 @@ interface Props {
 
 const { items } = Astro.props;
 const site = Astro.site;
-const breadcrumbSchema = site ? buildBreadcrumbSchema(site, items) : null;
+const currentHref = site ? new URL(Astro.url.pathname, site).href : undefined;
+const schemaItems = currentHref
+  ? items.map((item, i) =>
+      i === items.length - 1 && !item.href ? { ...item, href: currentHref } : item,
+    )
+  : items;
+const breadcrumbSchema = site ? buildBreadcrumbSchema(site, schemaItems) : null;
 ---
 
 {breadcrumbSchema && <JsonLd data={breadcrumbSchema} />}
