@@ -2,7 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
 import PracticeSideNav from '../../components/PracticeSideNav.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { excerptFromMarkdownBody } from '../../lib/excerpt';
+import { buildServiceSchema } from '../../lib/schema';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -18,6 +20,15 @@ const { Content } = await entry.render();
 
 const metaDescription =
   entry.data.description ?? excerptFromMarkdownBody(entry.body);
+
+const site = Astro.site;
+const serviceSchema = site
+  ? buildServiceSchema(site, {
+      name: entry.data.title,
+      url: `/practice-areas/${entry.slug}/`,
+      description: metaDescription,
+    })
+  : undefined;
 ---
 
 <BaseLayout
@@ -25,9 +36,17 @@ const metaDescription =
   description={metaDescription}
   activeNav="practice"
   ogType="article"
+  jsonLdExtra={serviceSchema}
 >
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
+      <Breadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Practice Areas', href: '/practice-areas/' },
+          { label: entry.data.title },
+        ]}
+      />
       <section class="u-bgColor-gray200 u-py8">
         <div class="o-grid">
           <header class="o-grid-cell u-mb5">

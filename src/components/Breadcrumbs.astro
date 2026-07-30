@@ -1,4 +1,7 @@
 ---
+import JsonLd from './JsonLd.astro';
+import { buildBreadcrumbSchema } from '../lib/schema';
+
 /** Simple trail: Home > Section > Current page */
 export interface Crumb {
   label: string;
@@ -11,8 +14,11 @@ interface Props {
 }
 
 const { items } = Astro.props;
+const site = Astro.site;
+const breadcrumbSchema = site ? buildBreadcrumbSchema(site, items) : null;
 ---
 
+{breadcrumbSchema && <JsonLd data={breadcrumbSchema} />}
 <nav class="u-pt4 u-pb2" aria-label="Breadcrumb">
   <ol
     class="u-m0 u-txtSmaller u-color-gray800 u-flex u-flexWrap u-itemsCenter"
